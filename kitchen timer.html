@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen timer</title>
+</head>
+<body>
+    <style>
+        div{
+            display: flex;
+            flex-direction: column;
+            margin:40vh
+        }
+        #input{
+            height: 3rem;
+            text-align: center;
+            
+        }
+        #output{
+            height: 3rem;
+            text-align: center;
+        }
+        #button{
+            height: 3rem;
+        }
+
+    </style>
+
+    <div>
+        <input type= "text" id= "input" placeholder="Set the Timer">
+        <input type = "text" id = "output" disabled>
+        <button id="button">Start</button>
+
+    </div>  
+    <script>
+
+function interval (){
+        document.getElementById("output").value = document.getElementById("input").value
+        const timerId = setInterval(function(){
+            let time = Number( document.getElementById('output').value);
+            
+            time = time - 1;
+            document.getElementById('output').value = time;
+            if( time === 0) {
+                
+                clearInterval(timerId);
+            }
+        }, 1000);
+    }
+
+
+    
+    //let time = Number( document.getElementById('input').value);
+    let button = document.getElementById('button');
+    //let output= document.getElementById('output').textContent;
+
+    button.addEventListener('click',  interval )
+
+    
+
+ 
+ 
+ 
+ 
+   //  setTimeout(function(){
+  //      time= time - 1
+  //      if(time === 0){
+  //      console.log('You\'re going to die!')}
+  // }, 1000)
+
+
+
+    </script>
+    
+</body>
+</html>
